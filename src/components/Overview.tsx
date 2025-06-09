@@ -17,7 +17,7 @@ interface OverviewProps {
     aggregated_reach: number;
     reach_change_percentage: number;
   };
-  hourlyData: Array<{ timestamp_hour: string; mentions_count: number; queries_count?: number }>;
+  hourlyData: Array<{ timestamp_hour: string; mentions_count: number;}>;
 }
 
 const formatarNumero = (numero: number): string => {
@@ -45,39 +45,10 @@ const Overview: React.FC<OverviewProps> = ({ data, hourlyData }) => {
   const dadosGrafico = hourlyData.map(item => ({
     hora: formatarDataGrafico(item.timestamp_hour),
     Menções: item.mentions_count,
-    Queries: item.queries_count ?? 0,
   }));
-  { /* <h1 className="text-xl font-semibold text-white">{title}</h1>*/ }
   return (
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
-        {/*
-          <div className="flex flex-col p-4 bg-gray-800 rounded-lg shadow-md h-full">
-            <h2 className="text-sm text-gray-400 mb-2">Image</h2>
-            <div className="flex-1 flex items-center justify-center">
-              <img
-                src="https://content.vizia.brandwatch.com/1997417980/2035576946/e893509c5fd9a8f7824f5138efeb17a1.png"
-                alt="Logo Ministério"
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
-          </div>
-        */}
-
-        {/*
-          <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-            <h2 className="text-sm font-semibold text-gray-400 mb-2">Total de Menções</h2>
-            <div className="flex items-center">
-              <p className="text-4xl font-bold text-white mr-2">{formatarNumero(total_mentions)}</p>
-              <span className={flex items-center text-lg ${mentions_change_percentage >= 0 ? 'text-green-500' : 'text-red-500'}}>
-              {mentions_change_percentage >= 0 ? <ArrowUp size={18} /> : <ArrowDown size={18} />}
-                {Math.abs(mentions_change_percentage)}%
-              </span>
-            </div>
-            <p className="text-xs text-gray-500 mt-1">Hoje</p>
-          </div>
-        */}
-
         <div className="bg-gray-800 p-6 rounded-lg shadow-md md:col-span-2 flex flex-col items-center justify-center text-center">
           <h2 className="text-sm font-semibold text-gray-400 mb-2">Total de Menções</h2>
           <div className="flex items-center justify-center mb-2">

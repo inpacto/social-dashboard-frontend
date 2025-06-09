@@ -12,7 +12,7 @@ import RealTime from '@/components/RealTime';
 import Authors from '@/components/Authors';
 import Mentions from "@/components/Mentions";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://social-dashboard-backend-npkl.onrender.com/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8081/api';
 
 export default function Home() {
   const [visualizacaoAtual, setVisualizacaoAtual] = useState(0);
